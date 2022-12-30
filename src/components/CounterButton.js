@@ -18,6 +18,6 @@ const CounterButton = ({calcType}) => {
         dispatch(action);
     }
 
-    return <button onClick={clickHandler}>{calcType}</button>
+    return <button onClick={clickHandler} className="counter__button">{calcType.toUpperCase()}</button>
 }
 export default CounterButton;

@@ -1,0 +1,32 @@
+.counter__buttons{
+  margin-bottom: 1vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  /* background-color: aqua; */
+  position: relative;
+}
+
+.counter__button__reset::after{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: transparent;
+}
+
+.counter__button{
+  margin: 20px;
+  padding: 10px;
+  width: 100px;
+}
+
+/* @media (max-width: 720px) {
+  .counter__buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+} */

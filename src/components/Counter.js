@@ -8,7 +8,9 @@ const Counter = () => {
 
   return (
     <>
-        <CounterButton calcType="reset"/>
+      <h2 className="title__counter">Welcom to Simple Black Jack</h2>
+      <div className="counter__buttons">
+        <CounterButton className="counter__button__reset" calcType="reset"/>
         {finish ? (
             <h3>{finish}</h3>
           ) : (
@@ -16,7 +18,7 @@ const Counter = () => {
               <CounterButton calcType="finish"/>
             </>
         )}
-        <CounterResult />
+
         {finish ? (
             <h3>{finish}</h3>
 
@@ -26,6 +28,8 @@ const Counter = () => {
               <CounterButton calcType="bank"/>
             </>
         )}
+      </div>
+      <CounterResult />
     </>
   )
 }

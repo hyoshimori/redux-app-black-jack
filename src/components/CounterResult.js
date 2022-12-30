@@ -8,12 +8,16 @@ const CounterResult = () => {
 
   return(
     <>
-      <h3>{player}</h3>
-      <h3>{bank}</h3>
+      <h3>Bank's Score: {bank}</h3>
+
+      <h3>Your Score: {player}</h3>
       {endGame ? (
           <h3>{endGame}</h3>
         ) : (
-          <h3>Click finish to stop playing</h3>
+          <>
+            <h3>Click finish to stop playing!</h3>
+            <h3>You can only click once for the Bank's score.</h3>
+          </>
       )}
       {finish ? (
           <h3>{finish}</h3>

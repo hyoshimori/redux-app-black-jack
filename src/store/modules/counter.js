@@ -4,7 +4,8 @@ const initialState = {
   countPlayer: 0,
   countBank: 0,
   finish: false,
-  endGame: ""
+  endGame: "",
+  bankCounter: 0
 };
 
 const counter = createSlice({
@@ -17,11 +18,19 @@ const counter = createSlice({
       if(player.countPlayer === 21){
         player.endGame = "Black Jack, You win!"
         player.finish = true
+      } else if(player.countPlayer > 21){
+        player.endGame = "You lose!"
+        player.finish = true
       }
       return player;
     },
     bank(state, { payload }) {
       const bank = {...state};
+      bank.bankCounter += 1
+      if(bank.bankCounter === 2){
+        bank.finish = true
+        bank.endGame = "Don't cheat! You lose!"
+      }
       bank.countBank = Math.floor(Math.random() * (22 - 16)) + 16;
       if(bank.countBank === 21){
         bank.endGame = "Black Jack, You lose!"
