@@ -1,6 +1,7 @@
 import CounterResult from "./CounterResult"
 import CounterButton from "./CounterButton"
 import { useSelector } from "react-redux"
+import CasinoIcon from '@mui/icons-material/Casino';
 
 const Counter = () => {
 
@@ -8,6 +9,7 @@ const Counter = () => {
 
   return (
     <>
+      <CasinoIcon />
       <h2 className="title__counter">Welcom to Simple Black Jack</h2>
       <div className="counter__buttons">
         <CounterButton className="counter__button__reset" calcType="reset"/>
