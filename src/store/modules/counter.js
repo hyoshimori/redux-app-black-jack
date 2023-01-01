@@ -1,65 +1,144 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  countPlayer: 0,
-  countBank: 0,
+  win:0,
+  lose: 0,
+  playerPoints: 0,
+  bankpoints: 0,
   finish: false,
-  endGame: "",
-  bankCounter: 0
+  isGameEndMessage: "Let's play!",
+  bankButtonCounter: 0,
+  alreadyPlaying: 0,
 };
 
 const counter = createSlice({
   name: 'counter',
   initialState,
   reducers: {
+    // ***Pseudocode***
+    // - When the game is not finished
+    // -> Random number is given to the player
+    // *****
+    // - When player's score is 21 and the game is not finished
+    // -> Player wins and the game is finished
+    // - Else when player's score is less than 21 and the game is not finihsed yet
+    // -> Player loses and the game is finished
+    // ****************
     player(state, { type, payload }) {
       const player = {...state};
-      player.countPlayer = state.countPlayer + Math.floor(Math.random() * (11 - 1)) + 1
-      if(player.countPlayer === 21){
-        player.endGame = "Black Jack, You win!"
+      if(player.finish !== true){
+      player.playerPoints = state.playerPoints + Math.floor(Math.random() * (11 - 1)) + 1
+      }
+      if(player.playerPoints === 21 && player.finish !== true){
+        player.isGameEndMessage = "Black Jack, You win!"
+        player.win += 1
         player.finish = true
-      } else if(player.countPlayer > 21){
-        player.endGame = "You lose!"
+      } else if(player.playerPoints > 21 && player.finish !== true){
+        player.isGameEndMessage = "You lose!"
+        player.lose += 1
         player.finish = true
       }
       return player;
     },
-    bank(state, { payload }) {
+    // ***Pseudocode***
+    // - When player is clicking the bank button multiple times
+    // -> Player loses and the game is finished
+    // *****
+    // - When Played did not clicked the bank button multiple times and the game has not started yet
+    // -> Random number is given to the bank
+    // *****
+    // - When bank's score is 21 and the game is not finished
+    // -> Bank wins and the game is finished
+    // ****************
+    bank(state, { type, payload }) {
       const bank = {...state};
-      bank.bankCounter += 1
-      if(bank.bankCounter === 2){
-        bank.finish = true
-        bank.endGame = "Don't cheat! You lose!"
+      if(bank.bankButtonCounter <= 2){
+      bank.bankButtonCounter += 1
       }
-      bank.countBank = Math.floor(Math.random() * (22 - 16)) + 16;
-      if(bank.countBank === 21){
-        bank.endGame = "Black Jack, You lose!"
+      if(bank.bankButtonCounter === 2 && bank.finish === false){
+        bank.isGameEndMessage = "Don't cheat! You lose!"
+        bank.lose += 1
         bank.finish = true
       }
+      if(bank.finish !== true){
+      bank.bankpoints = Math.floor(Math.random() * (22 - 16)) + 16;
+      }
+      if(bank.bankpoints === 21 && bank.finish === false){
+        bank.isGameEndMessage = "Black Jack, You lose! Click"
+        bank.lose += 1
+        bank.finish = true
+      }
+      // console.dir(bank);
       return bank;
     },
-    finish(state, { payload }) {
+    // ***Pseudocode***
+    // - When player's score is more than bank's score
+    // -> Player wins
+    // - Else when player's score is less than bank's score
+    // -> Player wins
+    // - Else when player's score is equal to bank's score
+    // -> Both player and bank win
+    // - In ant other situations
+    // -> Player loese
+    // *****
+    // -> When the game is not finished
+    // -> The game is finihsed
+    // ****************
+    finish(state, { type, payload }) {
       const result = {...state};
-      if(result.countPlayer > result.countBank && result.countPlayer < 22){
-        result.endGame = "You win!"
-      } else if(result.countPlayer < result.countBank){
-        result.endGame = "You lose!"
-      } else if(result.countPlayer === result.countBank){
-        result.endGame = "Push!"
+      if(result.playerPoints > result.bankpoints
+         && result.playerPoints < 22
+         && result.finish === false){
+        result.isGameEndMessage = "You win!"
+        result.win += 1
+      } else if(result.playerPoints < result.bankpoints){
+        result.isGameEndMessage = "You lose!"
+        result.lose += 1
+      } else if(result.playerPoints === result.bankpoints){
+        result.isGameEndMessage = "Push!"
+        result.win += 1
+        result.lose += 1
       } else {
-        result.endGame = "You lose!"
+        result.isGameEndMessage = "You lose!"
+        result.lose += 1
       }
+      if(result.finish === false){
       result.finish = true
-      return result;
+      return result;}
     },
+    // ***Pseudocode***
+    // Create a new state object that includes the values of win and lose from the previous state
+    // *****
+    // - When a game is started && when bank's score is not 0 && the game is not finished
+    // -> Message "Haha, There is no way back." and player loese
+    // ****************
+    restart(state, { type, payload }) {
+      const check = {...state};
+      if(check.alreadyPlaying === 1 && check.bankpoints !== 0 && check.finish === false){
+        check.isGameEndMessage = "Haha, There is no way back."
+        check.lose += 1
+        check.alreadyPlaying -= 1
+        check.finish = true
+        console.log("check");
+        console.dir(check);
+        return check;
+      } else {
+      const restart = {
+        ...initialState,
+        win: state.win,
+        lose: state.lose,
+      };
+      restart.alreadyPlaying += 1
+      return restart;
+    }},
     reset: () => initialState
   }
 });
 
 // This if for dispacth
-const { player, bank, reset, finish } = counter.actions;
+const { player, bank, restart, finish, reset } = counter.actions;
 
-export { player, bank, reset, finish }
+export { player, bank, restart, finish, reset }
 
 // This if for reducer
 export default counter.reducer;

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { player, bank, reset, finish } from "../store/modules/counter"
+import { player, bank, restart, finish, reset } from "../store/modules/counter"
 
 const CounterButton = ({calcType}) => {
 
@@ -12,8 +12,10 @@ const CounterButton = ({calcType}) => {
         action = bank()
       } else if(calcType === 'finish'){
         action = finish()
-      } else {
+      } else if(calcType === 'reset'){
         action = reset()
+      } else {
+        action = restart()
       }
         dispatch(action);
     }

@@ -9,12 +9,16 @@ const Counter = () => {
 
   return (
     <>
-      <CasinoIcon />
-      <h2 className="title__counter">Welcom to Simple Black Jack</h2>
+      <header className="counter__title">
+        <CasinoIcon className="counter__icon"/>
+        <h1 className="title__counter">WELCOME TO <br/>SIMPLE BLACK JACK</h1>
+        <CasinoIcon className="counter__icon"/>
+      </header>
+      <CounterResult />
       <div className="counter__buttons">
-        <CounterButton className="counter__button__reset" calcType="reset"/>
+        <CounterButton className="counter__button__restart" calcType="restart"/>
         {finish ? (
-            <h3>{finish}</h3>
+            <CounterButton calcType="finish"/>
           ) : (
             <>
               <CounterButton calcType="finish"/>
@@ -22,8 +26,10 @@ const Counter = () => {
         )}
 
         {finish ? (
-            <h3>{finish}</h3>
-
+            <>
+              <CounterButton calcType="player"/>
+              <CounterButton calcType="bank"/>
+            </>
           ) : (
             <>
               <CounterButton calcType="player"/>
@@ -31,7 +37,7 @@ const Counter = () => {
             </>
         )}
       </div>
-      <CounterResult />
+
     </>
   )
 }
