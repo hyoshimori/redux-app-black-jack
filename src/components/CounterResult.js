@@ -1,29 +1,51 @@
 import { useSelector } from "react-redux"
+import StarIcon from '@mui/icons-material/Star';
+
+
 const CounterResult = () => {
 
-  const player = useSelector(state => state.counter.countPlayer)
-  const bank = useSelector(state => state.counter.countBank)
-  const finish = useSelector(state => state.counter.finish)
-  const endGame = useSelector(state => state.counter.endGame)
+  const player = useSelector(state => state.counter.playerPoints)
+  const bank = useSelector(state => state.counter.bankpoints)
+  const isGameEndMessage = useSelector(state => state.counter.isGameEndMessage)
+  const win = useSelector(state => state.counter.win)
+  const lose = useSelector(state => state.counter.lose)
 
   return(
     <>
-      <h3>Bank's Score: {bank}</h3>
-
-      <h3>Your Score: {player}</h3>
-      {endGame ? (
-          <h3>{endGame}</h3>
-        ) : (
+      <div className="counter__result__info">
+        {isGameEndMessage ? (
           <>
-            <h3>Click finish to stop playing!</h3>
-            <h3>You can only click once for the Bank's score.</h3>
+            <h3>RULES</h3>
+            <h3>● Click on "BANK" once to start playing.</h3>
+            <h3>● Now, click on "PLAYER" to start the game.</h3>
+            <h3>● You can only click once for the Bank's score.</h3>
           </>
-      )}
-      {finish ? (
-          <h3>{finish}</h3>
-        ) : (
-          <h3>{finish}</h3>
-      )}
+          ) : (
+          <>
+            <h3>RULES</h3>
+            <h3>● Click on "BANK" once to start playing.</h3>
+            <h3>● Now, click on "PLAYER" to start the game.</h3>
+            <h3>● You can only click once for the Bank's score.</h3>
+          </>
+        )}
+      </div>
+      <div className="casino__table">
+        <div>
+          <h3>Bank's Card: {bank}</h3>
+          <div className="display__result">
+            <StarIcon />
+            <span>{lose}</span>
+          </div>
+        </div>
+        <h3 className="counter__result__status">{isGameEndMessage}</h3>
+        <div>
+          <div className="display__result">
+            <StarIcon />
+            <span>{win}</span>
+          </div>
+          <h3>Your Card: {player}</h3>
+        </div>
+      </div>
     </>
   );
 };

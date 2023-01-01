@@ -1,0 +1,19 @@
+@import "./App.css";
+@import "./button.css";
+@import "./font.css";
+
+/* colors from: https://coolors.co/b80c09-fdfffc-004830-726e75-1b4079 */
+
+body{
+  background-color: var(--casion-green);
+}
+
+:root{
+  --casion-green: #004830;
+  --casion-red: #B80C09;
+  --casion-white: #FDFFFC;
+  --casion-blue: #1B4079;
+  --casion-grey: #726e75;
+  --casion-dark-red: #771B00;
+  --casion-yellow: #FFD07B;
+}

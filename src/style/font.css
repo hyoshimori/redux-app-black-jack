@@ -4,13 +4,27 @@ html{
 }
 
 .title__counter{
-  font-size: 3rem;
-}
-
-h3{
   font-size: 2rem;
 }
 
+svg.counter__icon{
+  transform: scale(2.5);
+  margin: 3rem;
+}
+
+h1{
+  color: var(--casion-yellow);
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
 button{
+  font-size: 1.7rem;
+}
+
+
+.display__result{
   font-size: 2rem;
 }
