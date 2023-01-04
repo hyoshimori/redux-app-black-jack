@@ -64,7 +64,7 @@ const counter = createSlice({
       bank.bankpoints = Math.floor(Math.random() * (22 - 16)) + 16;
       }
       if(bank.bankpoints === 21 && bank.finish === false){
-        bank.isGameEndMessage = "Black Jack, You lose! Click"
+        bank.isGameEndMessage = "Black Jack, You lose!"
         bank.lose += 1
         bank.finish = true
       }
