@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-self: center;
-  /* background-color: aqua; */
   position: relative;
 }
 
@@ -21,20 +20,14 @@
 
 .counter__button{
   margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
   padding: 20px 20px;
-  width: 160px;
+  width: 150px;
   color: white;
   background-color: var(--casion-dark-red);
   border-radius: 5px;
   border: solid 2px var(--casion-yellow);
   font-family: "Baskerville", serif;
   cursor: pointer;
-}
-
-@media (max-width: 720px) {
-  .counter__buttons {
-    grid-template-columns: 1fr 1fr;
-  }
 }

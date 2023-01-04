@@ -16,7 +16,7 @@
 .casino__table{
   border: solid 2px var(--casion-yellow);
   background-color: var(--casion-dark-red);
-  width: 35%;
+  width: 350px;
   align-self: center;
   border-radius: 10px;
   min-height: 200px;
@@ -35,29 +35,11 @@
   border-radius: 5px;
   border: solid 2px var(--casion-yellow);
   background-color: var(--casion-dark-red);
-  width: 35%;
+  width: 350px;
   align-self: center;
   margin: 2vh 0;
 }
 
 .counter__result__status{
   color: var(--casion-yellow);
-}
-
-@media (max-width: 960px) {
-  .casino__table {
-    width: 50%;
-  }
-  .counter__result__info{
-    width: 50%;
-  }
-}
-
-@media (max-width: 720px) {
-  .casino__table {
-    width: 80%;
-  }
-  .counter__result__info{
-    width: 80%;
-  }
 }
