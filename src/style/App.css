@@ -6,6 +6,16 @@
   text-align: center;
 }
 
+
+.casino{
+  width: 100vw;
+  height: 100vh;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6),
+              0 0 200px rgba(0, 0, 0, 0.4),
+              inset 0 0 100px rgba(0, 0, 0, 0.6),
+              inset 0 0 200px rgba(0, 0, 0, 0.4);
+}
+
 .counter__title{
   display: flex;
   align-items: center;
@@ -16,13 +26,15 @@
 .casino__table{
   border: solid 2px var(--casion-yellow);
   background-color: var(--casion-dark-red);
-  width: 350px;
+  width: 500px;
   align-self: center;
   border-radius: 10px;
   min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: inset 0px 0px 50px 0px #000000,
+                    0px 0px 250px 0px #000000;
 }
 
 .display__result{
@@ -35,11 +47,22 @@
   border-radius: 5px;
   border: solid 2px var(--casion-yellow);
   background-color: var(--casion-dark-red);
-  width: 350px;
+  width: 500px;
   align-self: center;
   margin: 2vh 0;
+  box-shadow: inset 0px 0px 200px 0px #000000,
+                    0px 0px 200px 0px #000000;
 }
 
 .counter__result__status{
   color: var(--casion-yellow);
+}
+
+@media (max-width: 540px) {
+  .counter__result__info{
+    width: 350px;
+  }
+  .casino__table{
+    width: 350px;
+  }
 }

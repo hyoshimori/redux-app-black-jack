@@ -4,11 +4,13 @@ import store from "./store"
 
 const App = () => {
   return (
-    <div className="counter">
-      <Provider store={store}>
-        <Counter />
-      </Provider>
-    </div>
+    <main className="casino">
+      <div className="counter">
+        <Provider store={store}>
+          <Counter />
+        </Provider>
+      </div>
+    </main>
   );
 };
 

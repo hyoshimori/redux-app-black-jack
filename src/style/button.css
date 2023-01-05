@@ -20,14 +20,30 @@
 
 .counter__button{
   margin-top: 20px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
   padding: 20px 20px;
-  width: 150px;
+  width: 200px;
   color: white;
   background-color: var(--casion-dark-red);
   border-radius: 5px;
   border: solid 2px var(--casion-yellow);
   font-family: "Baskerville", serif;
   cursor: pointer;
+  box-shadow: 0px 0px 50px 0px #000000,
+        inset 0px 0px 50px 0px #000000;
+  transition: all 0.2s;
+}
+
+
+.counter__button:hover {
+  color: var(--casion-yellow);
+}
+
+@media (max-width: 540px) {
+  .counter__button{
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 150px;
+  }
 }
