@@ -18,7 +18,9 @@ const Counter = () => {
       <div className="counter__buttons">
         <CounterButton className="counter__button__restart" calcType="restart"/>
         {finish ? (
-            <CounterButton calcType="finish"/>
+            <>
+              {/* <CounterButton calcType="finish"/> */}
+            </>
           ) : (
             <>
               <CounterButton calcType="finish"/>
@@ -27,13 +29,13 @@ const Counter = () => {
 
         {finish ? (
             <>
-              <CounterButton calcType="player"/>
-              <CounterButton calcType="bank"/>
+              {/* <CounterButton calcType="player"/>
+              <CounterButton calcType="bank"/> */}
             </>
           ) : (
             <>
-              <CounterButton calcType="player"/>
               <CounterButton calcType="bank"/>
+              <CounterButton calcType="player"/>
             </>
         )}
       </div>

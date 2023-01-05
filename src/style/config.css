@@ -5,11 +5,12 @@
 /* colors from: https://coolors.co/b80c09-fdfffc-004830-726e75-1b4079 */
 
 body{
-  background-color: var(--casion-green);
+  background-color: var(--casion-dark-green);
 }
 
 :root{
   --casion-green: #004830;
+  --casion-dark-green: #002c1e;
   --casion-red: #B80C09;
   --casion-white: #FDFFFC;
   --casion-blue: #1B4079;

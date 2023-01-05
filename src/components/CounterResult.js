@@ -15,16 +15,16 @@ const CounterResult = () => {
       <div className="counter__result__info">
         {isGameEndMessage ? (
           <>
-            <h3>RULES</h3>
-            <h3>● Click on "BANK" once to start playing.</h3>
-            <h3>● Now, click on "PLAYER" to start the game.</h3>
+            <h3 className="counter__result__info__rules">RULES</h3>
+            <h3>● Click on 'BANK' once to start playing.</h3>
+            <h3>● Now, click on 'PLAYER' to start the game.</h3>
             <h3>● You can only click once for the Bank's score.</h3>
           </>
           ) : (
           <>
             <h3>RULES</h3>
-            <h3>● Click on "BANK" once to start playing.</h3>
-            <h3>● Now, click on "PLAYER" to start the game.</h3>
+            <h3>● Click on 'BANK' once to start playing.</h3>
+            <h3>● Now, click on 'PLAYER' to start the game.</h3>
             <h3>● You can only click once for the Bank's score.</h3>
           </>
         )}

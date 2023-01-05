@@ -6,7 +6,7 @@ const initialState = {
   playerPoints: 0,
   bankpoints: 0,
   finish: false,
-  isGameEndMessage: "Let's play!",
+  isGameEndMessage: "Let's play! Click 'BANK' to start playing!",
   bankButtonCounter: 0,
   alreadyPlaying: 0,
 };
@@ -16,8 +16,9 @@ const counter = createSlice({
   initialState,
   reducers: {
     // ***Pseudocode***
-    // - When the game is not finished
+    // - When the game is not finished && When bank's score is not 0
     // -> Random number is given to the player
+    // -> And display "Hit Finish when you want to stop!"
     // *****
     // - When player's score is 21 and the game is not finished
     // -> Player wins and the game is finished
@@ -26,7 +27,8 @@ const counter = createSlice({
     // ****************
     player(state, { type, payload }) {
       const player = {...state};
-      if(player.finish !== true){
+      if(player.finish !== true && player.bankpoints !== 0){
+      player.isGameEndMessage = "Hit Finish when you want to stop!"
       player.playerPoints = state.playerPoints + Math.floor(Math.random() * (11 - 1)) + 1
       }
       if(player.playerPoints === 21 && player.finish !== true){
@@ -41,6 +43,9 @@ const counter = createSlice({
       return player;
     },
     // ***Pseudocode***
+    // - When player's point is 0
+    // -> Display "Now, click 'PLAYER' to add your score!"
+    // *****
     // - When player is clicking the bank button multiple times
     // -> Player loses and the game is finished
     // *****
@@ -52,6 +57,9 @@ const counter = createSlice({
     // ****************
     bank(state, { type, payload }) {
       const bank = {...state};
+      if(bank.bankpoints === 0){
+        bank.isGameEndMessage = "Now, click 'PLAYER' to add your score!"
+      }
       if(bank.bankButtonCounter <= 2){
       bank.bankButtonCounter += 1
       }

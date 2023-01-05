@@ -17,7 +17,7 @@ h1{
 }
 
 h3{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 button{
@@ -27,4 +27,18 @@ button{
 
 .display__result{
   font-size: 2rem;
+}
+
+.counter__result__info__rules{
+  color: var(--casion-yellow);
+}
+
+.counter__result__status{
+  font-size: 2rem;
+}
+
+@media (max-width: 540px) {
+  h3{
+    font-size: 1.5rem;
+  }
 }
