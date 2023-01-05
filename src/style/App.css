@@ -27,7 +27,8 @@
   border: solid 2px var(--casion-yellow);
   background-color: var(--casion-dark-red);
   width: 500px;
-  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
   align-self: center;
   border-radius: 10px;
   min-height: 200px;
@@ -65,5 +66,7 @@
   }
   .casino__table{
     width: 350px;
+    min-height: 250px;
+    max-height: 250px;
   }
 }
