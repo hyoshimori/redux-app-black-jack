@@ -45,6 +45,17 @@
   align-items: center;
 }
 
+.card__point{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accumulated__point{
+  margin-left: 10px;
+  color: var(--casion-yellow);
+}
+
 .counter__result__info{
   border-radius: 5px;
   border: solid 2px var(--casion-yellow);
