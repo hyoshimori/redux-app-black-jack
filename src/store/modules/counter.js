@@ -28,7 +28,7 @@ const counter = createSlice({
     player(state, { type, payload }) {
       const player = {...state};
       if(player.finish !== true && player.bankpoints !== 0){
-      player.isGameEndMessage = "Hit "FINISH" when you want to stop!"
+      player.isGameEndMessage = "Hit 'FINISH' when you want to stop!"
       player.playerPoints = state.playerPoints + Math.floor(Math.random() * (11 - 1)) + 1
       }
       if(player.playerPoints === 21 && player.finish !== true){
