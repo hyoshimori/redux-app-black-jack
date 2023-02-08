@@ -95,3 +95,12 @@
     height: 100%;
   }
 }
+
+@media (max-width: 375px) {
+  .counter__result__info{
+    width: 255px;
+  }
+  .casino__table{
+    width: 255px;
+  }
+}
