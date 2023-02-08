@@ -74,8 +74,10 @@
 @media (max-width: 540px) {
   .counter__result__info{
     width: 350px;
+    padding: 10px;
   }
   .casino__table{
+    padding: 10px;
     width: 350px;
     min-height: 250px;
     max-height: 250px;
@@ -83,6 +85,12 @@
 }
 
 @media (max-width: 440px) {
+  .counter__result__info{
+    width: 285px;
+  }
+  .casino__table{
+    width: 285px;
+  }
   .counter{
     height: 100%;
   }

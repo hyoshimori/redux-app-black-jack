@@ -42,8 +42,16 @@
 
 @media (max-width: 540px) {
   .counter__button{
-    margin-left: 17px;
-    margin-right: 17px;
+    margin-left: 25px;
+    margin-right: 25px;
     width: 150px;
+  }
+}
+
+@media (max-width: 440px) {
+  .counter__button{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 130px;
   }
 }
