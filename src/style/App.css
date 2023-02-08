@@ -80,6 +80,9 @@
     min-height: 250px;
     max-height: 250px;
   }
+}
+
+@media (max-width: 440px) {
   .counter{
     height: 100%;
   }
